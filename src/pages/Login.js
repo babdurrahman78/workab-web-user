@@ -12,8 +12,11 @@ const StyledScreen = styled.div`
 const StyledContainer = styled.div`
     width: 630px;
     height: 322px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     background-color: #FFFFFF;
-    margin: 80px auto;
     border-radius: 30px;
     padding-top: 70px;
 `
