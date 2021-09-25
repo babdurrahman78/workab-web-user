@@ -8,6 +8,17 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+P{
+  margin: 0;
+}
+
+/* .calendar{
+  background: url('./assets/icon/calendar.png');
+  width: 20px;
+  height: 30px;
+  display: block;
+} */
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
