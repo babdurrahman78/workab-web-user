@@ -10,31 +10,35 @@ const StyledScreen = styled.div`
 `
 
 const StyledContainer = styled.div`
-    width: 630px;
-    height: 322px;
+    width: 420px;
+    height: 260px;
+    box-sizing: border-box;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: #FFFFFF;
     border-radius: 30px;
-    padding-top: 70px;
+    padding-top: 64px;
 `
 
 const StyledForm = styled.form`
     width: 414px;
     margin: auto;
+    width: 275px;
 `
 
 const StyledInput = styled.input`
     box-sizing: border-box;
-    width: 100%;
-    height: 79.92px;
+    display: block;
+    width: 275px;
+    height: 53px;
+    margin: 0 auto 3px;
     text-align: center;
     border: 4px solid #5579A4;
     border-radius: 10px;
     color: #5579A480;
-    font-size: 30px;
+    font-size: 16px;
     outline: none;
     font-weight: 700;
 
@@ -43,18 +47,12 @@ const StyledInput = styled.input`
     }
 `
 
-const StyledInputUsername = styled(StyledInput)`
-    margin-bottom: 6.08px;
-`
-
-const StyledInputPassword = styled(StyledInput)`
-    margin-bottom: 1px;
-`
-
 const StyledParagraph = styled.p`
     float: right;
+    font-size: 8px;
+    font-weight: 700;
     color: #5579A480;
-    margin: 0 0 16px 0;
+    margin: 0 0 5px 0;
     cursor: pointer;
 `
 
@@ -62,9 +60,9 @@ const StyledButton = styled.button`
     clear: both;
     margin: auto;
     display: block;
-    width: 162.93px;
-    height: 90px;
-    font-size: 30px;
+    width: 108px;
+    height: 59px;
+    font-size: 16px;
     color: #FFFFFF;
     background-color: #5579A4;
     border: none;
@@ -79,10 +77,10 @@ export default function Login() {
             <StyledScreen>
                 <StyledContainer>
                     <StyledForm>
-                        <StyledInputUsername
+                        <StyledInput
                             placeholder="USERNAME"
                         />
-                        <StyledInputPassword
+                        <StyledInput
                             placeholder="PASSWORD"
                         />
                         <StyledParagraph>
