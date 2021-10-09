@@ -3,51 +3,57 @@ import logo from '../assets/logo.png'
 
 const NavbarContainer = styled.div`
     display: flex;
-    width: 100%;
-    height: 100px;
+    justify-content: space-between;
+    max-width: 1440px;
+    margin: auto;
+    height: 71px;
     background-color: #577BA8;
     box-sizing: border-box;
 `
 
 const StyledImg = styled.img`
-    margin-top: 17px;
-    width: 81px;
-    height: 66px;
+    width: 77px;
+    height: 48px;
     display: block;
-    margin-left: 85px;
+    margin: 10.64px 0 12px 34px;
 `
 
 const StyledList = styled.ul`
-    height: 45px;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    height: 100%;
     margin: 0;
-    margin-top: 30px;
     padding: 0;
 `
 
 const StyledListItem = styled.li`
-    display: inline;
-    font-size: 30px;
+    font-size: 20px;
+    list-style: none;
     color: #FFFFFF;
-    margin-left: 90px;
     cursor: pointer;
+    
+    &:hover{
+        border-bottom: 3px solid #FFFFFF;
+    }
 `
 
 const StyledButton = styled.div`
-    width: 164px;
-    height: 74px;
+    width: 140px;
+    height: 40px;
     background-color: #79AAF3;
-    margin-top: 15px;
-    margin-left: 50px;
-    border-radius: 20px;
+    margin: 17px 24px 0 0;
+    border-radius: 10px;
     cursor: pointer;
+    box-sizing: border-box;
 `
 
 const StyledParagraph = styled.p`
-    font-size: 30px;
+    font-size: 20px;
+    line-height: 35px;
+    font-weight: 500;
     color: #FFFFFF;
     text-align: center;
-    height: 100%;
-    line-height: 70px;
 `
 
 export default function Navbar() {
