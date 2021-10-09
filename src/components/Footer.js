@@ -11,6 +11,7 @@ const StyledContainer = styled.div`
     color: #FFFFFF;
     font-size: 20px;
     gap: 10px;
+    max-width: 1440px;
 `
 
 const StyledImage = styled.img`
