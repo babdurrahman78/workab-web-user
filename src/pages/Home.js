@@ -14,21 +14,21 @@ const StyledContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 100px;
-`
+`;
 
 const StyledParagraph = styled.p`
   color: #686868;
-`
+`;
 
 const StyledTitle = styled(StyledParagraph)`
   font-size: 70px;
   color: #686868;
   font-weight: bold;
-`
+`;
 
 const StyledDesc = styled(StyledParagraph)`
   font-size: 25px;
-`
+`;
 
 const StyledButton = styled.button`
   display: block;
@@ -39,48 +39,48 @@ const StyledButton = styled.button`
   border: none;
   border-radius: 15px;
   cursor: pointer;
-`
+`;
 
 const StyledParagraphButton = styled.p`
   font-size: 25px;
   color: #ffffff;
-`
+`;
 
 const StyledRow = styled.div`
   display: flex;
   margin-bottom: 10px;
-`
+`;
 
 const StyledFeatureContainer = styled.div`
   color: #000000;
   width: 640px;
-`
+`;
 
 const StyledFeatureTitle = styled.p`
   font-size: 30px;
-`
+`;
 
 const StyledFeatureDesc = styled.p`
   font-size: 20px;
   font-weight: 400px;
   border-top: 3px solid black;
-`
+`;
 
 const StyledFeatureImageContainer = styled.div`
   flex: 1;
-`
+`;
 
 const StyledLeftImage = styled.img`
   width: 350px;
   display: block;
   margin-right: auto;
-`
+`;
 
 const StyledRightImage = styled.img`
   width: 350px;
   display: block;
   margin-left: auto;
-`
+`;
 
 export default function Home() {
   return (
