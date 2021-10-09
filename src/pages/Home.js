@@ -81,11 +81,6 @@ const StyledRightImage = styled.img`
     margin-left: auto;
 `
 
-const StyledFeatureImage = styled.img`
-    display: block;
-    margin: auto;
-`
-
 export default function Home() {
     return (
         <StyledContainer>
