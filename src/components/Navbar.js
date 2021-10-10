@@ -2,14 +2,13 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import logo from "../assets/logo.png";
 
-const NavbarContainer = styled.div`
+const StyledContainer = styled.div`
   display: flex;
   justify-content: space-between;
   max-width: 1440px;
   margin: auto;
   height: 71px;
   background-color: #577ba8;
-  box-sizing: border-box;
 `;
 
 const StyledImg = styled.img`
@@ -46,7 +45,6 @@ const StyledButton = styled.div`
   margin: 17px 24px 0 0;
   border-radius: 10px;
   cursor: pointer;
-  box-sizing: border-box;
 `;
 
 const StyledParagraph = styled.p`
@@ -59,27 +57,27 @@ const StyledParagraph = styled.p`
 
 const StyledLink = styled(Link)`
   text-decoration: none;
-  color: #FFFFFF;
-`
+  color: #ffffff;
+`;
 
 export default function Navbar() {
   return (
-      <NavbarContainer>
-        <StyledImg src={logo} />
-        <StyledList>
-          <StyledListItem>
-            <StyledLink to="/">Home</StyledLink>
-          </StyledListItem>
-          <StyledListItem>Fitur</StyledListItem>
-          <StyledListItem>Mobile</StyledListItem>
-          <StyledListItem>Kemitraan</StyledListItem>
-          <StyledListItem>Biaya</StyledListItem>
-        </StyledList>
-        <StyledButton>
-          <StyledParagraph>
-            <StyledLink to="/login">Login</StyledLink>
-          </StyledParagraph>
-        </StyledButton>
-      </NavbarContainer>
+    <StyledContainer>
+      <StyledImg src={logo} alt="workab-logo" />
+      <StyledList>
+        <StyledListItem>
+          <StyledLink to="/">Home</StyledLink>
+        </StyledListItem>
+        <StyledListItem>Fitur</StyledListItem>
+        <StyledListItem>Mobile</StyledListItem>
+        <StyledListItem>Kemitraan</StyledListItem>
+        <StyledListItem>Biaya</StyledListItem>
+      </StyledList>
+      <StyledButton>
+        <StyledLink to="/login">
+          <StyledParagraph>Login</StyledParagraph>
+        </StyledLink>
+      </StyledButton>
+    </StyledContainer>
   );
 }

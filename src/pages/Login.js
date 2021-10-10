@@ -11,7 +11,6 @@ const StyledScreen = styled.div`
 const StyledContainer = styled.div`
     width: 420px;
     height: 260px;
-    box-sizing: border-box;
     background-color: #FFFFFF;
     border-radius: 30px;
     padding-top: 64px;
@@ -24,7 +23,6 @@ const StyledForm = styled.form`
 `
 
 const StyledInput = styled.input`
-    box-sizing: border-box;
     display: block;
     width: 275px;
     height: 53px;

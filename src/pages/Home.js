@@ -6,7 +6,6 @@ import clock from "../assets/clock.png";
 import girl from "../assets/girl-laptop.png";
 
 const StyledContainer = styled.div`
-  box-sizing: border-box;
   background-color: #ffffff;
   max-width: 1440px;
   margin: auto;
