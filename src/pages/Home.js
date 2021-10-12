@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
 import visiting from "../assets/visiting.png";
 import clock from "../assets/clock.png";
 import girl from "../assets/girl-laptop.png";
@@ -84,6 +85,7 @@ const StyledRightImage = styled.img`
 export default function Home() {
   return (
     <>
+      <Navbar />
       <StyledContainer>
         <StyledRow>
           <StyledFeatureContainer>

@@ -1,7 +1,11 @@
 import styled from 'styled-components'
+import { Link } from "react-router-dom";
+import Navbar from "../components/Navbar";
 
 const StyledScreen = styled.div`
     background-color: #5579A4;
+    max-width: 1440px;
+    margin: auto;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -64,9 +68,15 @@ const StyledButton = styled.button`
     cursor: pointer;
 `
 
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: #ffffff;
+`;
+
 export default function Login() {
     return (
         <div>
+            <Navbar />
             <StyledScreen>
                 <StyledContainer>
                     <StyledForm>
@@ -80,7 +90,9 @@ export default function Login() {
                             Lupa Password
                         </StyledParagraph>
                         <StyledButton>
-                            MASUK
+                            <StyledLink to="/attendance">
+                                MASUK
+                            </StyledLink>
                         </StyledButton>
                     </StyledForm>
                 </StyledContainer>

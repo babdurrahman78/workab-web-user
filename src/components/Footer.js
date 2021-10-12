@@ -4,11 +4,10 @@ import logo from '../assets/logo.png'
 
 const StyledContainer = styled.div`
     height: 71px;
-    background-color: #577BA8;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #FFFFFF;
+    color: #C1C1C1;
     font-size: 20px;
     gap: 10px;
     max-width: 1440px;

@@ -1,12 +1,13 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from "react";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 
 const StyledContainer = styled.div`
-    width: 188px;
-    height: 100vh;
-    background-color: #577BA8;
-`
+  width: 188px;
+  height: 100vh;
+  background-color: #577ba8;
+`;
 
 const StyledImg = styled.img`
   width: 116px;
@@ -31,25 +32,36 @@ const StyledListItem = styled.li`
   font-size: 20px;
   font-weight: 600;
   list-style: none;
-  color: #FFFFFF;
+  color: #ffffff;
   cursor: pointer;
   border-radius: 20px 0px 0px 20px;
 
   &:hover {
     color: #000000;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
   }
 `;
 
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: #ffffff;
+`;
+
 export default function Sidebar() {
-    return (
-        <StyledContainer>
-            <StyledImg src={logo} alt="workab-logo" />
-            <StyledList>
-                <StyledListItem>dashboard</StyledListItem>
-                <StyledListItem>attendance</StyledListItem>
-                <StyledListItem>visiting</StyledListItem>
-            </StyledList>
-        </StyledContainer>
-    )
+  return (
+    <StyledContainer>
+      <StyledImg src={logo} alt="workab-logo" />
+      <StyledList>
+        <StyledLink to="/dashboard">
+          <StyledListItem>dashboard</StyledListItem>
+        </StyledLink>
+        <StyledLink to="/attendance">
+          <StyledListItem>attendance</StyledListItem>
+        </StyledLink>
+        <StyledLink to="/visiting">
+          <StyledListItem>visiting</StyledListItem>
+        </StyledLink>
+      </StyledList>
+    </StyledContainer>
+  );
 }
