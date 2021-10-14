@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 import Sidebar from "../components/Sidebar";
 import Footer from "../components/Footer";
 import dropdown from "../assets/icon/dropdown.png";
 import search from "../assets/icon/search.png";
-import axios from "axios";
 
 const StyledScreen = styled.div`
   display: flex;
@@ -103,58 +102,12 @@ const StyledTable = styled.table`
   }
 `;
 
-export default function Visiting() {
-  const [loading, setLoading] = useState(true)
-  const [visitingList, setVisiting] = useState([])
-  useEffect(() => {
-      axios.get(`/api/user/visiting/history`).then( res => {
-        if ( res.data.meta.code === 200 ) {
-          setVisiting( res.data.data.visiting )
-        }
-        setLoading( false )
-      })
-    }, [])
-
-    var data = '';
-
-    if (loading) {
-      data = <h4>Loading...</h4>
-    } else {
-      let i = 0;
-      data = visitingList.map( (index) => {
-        i++
-        return (
-          <tr>
-            <td>{ i }</td>
-            <td>{ index.shop_name }</td>
-            <td>{ index.created_at }</td>
-            <td>{ index.shop_address }</td>
-          </tr>
-        )
-      } )
-    }
-
+export default function Dashboard() {
   const handleSearch = () => {};
 
   return (
     <>
-        <StyledSearchContainer>
-          <img src={search} alt="search-button" />
-          <StyledInput placeholder="Search here" onChange={handleSearch} />
-        </StyledSearchContainer>
-          <StyledTable>
-            <thead>
-              <tr>
-                <th>No</th>
-                <th>Nama Lokasi</th>
-                <th>Date & Time</th>
-                <th>Lokasi</th>
-              </tr>
-            </thead>
-            <tbody>
-              { data }
-            </tbody>
-          </StyledTable>
+        Dashboard
     </>
   );
 }
