@@ -52,13 +52,13 @@ export default function Sidebar() {
     <StyledContainer>
       <StyledImg src={logo} alt="workab-logo" />
       <StyledList>
-        <StyledLink to="/dashboard">
+        <StyledLink to="/user/dashboard">
           <StyledListItem>dashboard</StyledListItem>
         </StyledLink>
-        <StyledLink to="/attendance">
+        <StyledLink to="/user/attendance">
           <StyledListItem>attendance</StyledListItem>
         </StyledLink>
-        <StyledLink to="/visiting">
+        <StyledLink to="/user/visiting">
           <StyledListItem>visiting</StyledListItem>
         </StyledLink>
       </StyledList>

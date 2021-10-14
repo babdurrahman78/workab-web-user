@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Sidebar from "../components/Sidebar";
 import Footer from "../components/Footer";
 import dropdown from "../assets/icon/dropdown.png";
 import search from "../assets/icon/search.png";
+import axios from "axios";
 
 const StyledScreen = styled.div`
   display: flex;
@@ -103,44 +104,56 @@ const StyledTable = styled.table`
 `;
 
 export default function Attendance() {
-  const handleChange = () => {};
-  return (
-    <StyledScreen>
-      <Sidebar />
-      <StyledContainer>
-        <StyledHeader>
-          <StyledDesc>Attendance</StyledDesc>
-          <StyledUserContainer>
-            <StyledUser>Hallo, Bilal</StyledUser>
-            <StyledButton>
-                <img src={dropdown} alt="dropdown" />
-            </StyledButton>
-          </StyledUserContainer>
-        </StyledHeader>
-        <StyledSearchContainer>
-          <img src={search} alt="search-button" />
-          <StyledInput placeholder="Search here" onChange={handleChange} />
-        </StyledSearchContainer>
-          <StyledTable>
-            <thead>
-              <tr>
-                <th>No</th>
-                <th>Nama</th>
-                <th>Riwayat</th>
-                <th>Keterangan</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>AAAA</td>
-                <td>AAAA</td>
-                <td>AAAA</td>
-                <td>AAAA</td>
-              </tr>
-            </tbody>
-          </StyledTable>
-        <Footer />
-      </StyledContainer>
-    </StyledScreen>
+  const [loading, setLoading] = useState(true)
+  const [attendanceList, setAttendance] = useState([])
+  useEffect(() => {
+      axios.get(`/api/user/attendance/history`).then( res => {
+        if ( res.data.meta.code === 200 ) {
+          setAttendance( res.data.data.attendance )
+        }
+        setLoading( false )
+      })
+    }, [])
+
+    var data = '';
+
+    if (loading) {
+      data = <h4>Loading...</h4>
+    } else {
+      let i = 0;
+      data = attendanceList.map( (index) => {
+        i++
+        return (
+          <tr>
+            <td>{ i }</td>
+            <td>{ index.name }</td>
+            <td>{ index.time }</td>
+            <td>{ index.type === "In" ? 'Masuk' : 'Pulang' }</td>
+          </tr>
+        )
+      } )
+    }
+
+    const handleChange = () => {};
+    return (
+    <>
+      <StyledSearchContainer>
+        <img src={search} alt="search-button" />
+        <StyledInput placeholder="Search here" onChange={handleChange} />
+      </StyledSearchContainer>
+        <StyledTable>
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Nama</th>
+              <th>Riwayat</th>
+              <th>Keterangan</th>
+            </tr>
+          </thead>
+          <tbody>
+            { data }
+          </tbody>
+        </StyledTable>
+    </>
   );
 }

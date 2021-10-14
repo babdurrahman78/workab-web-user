@@ -1,6 +1,9 @@
+import React, { useState } from 'react'
 import styled from 'styled-components'
-import { Link } from "react-router-dom";
+import { Link, useHistory } from 'react-router-dom';
 import Navbar from "../components/Navbar";
+import axios from 'axios';
+import swal from 'sweetalert';
 
 const StyledScreen = styled.div`
     background-color: #5579A4;
@@ -74,25 +77,84 @@ const StyledLink = styled(Link)`
 `;
 
 export default function Login() {
+    const history = useHistory();
+
+    const [loginInput, setLogin] = useState({
+        username: '',
+        password: '',
+        error_list: [],
+    })
+
+    const handleInput = (e) => {
+        e.persist()
+        setLogin({ ...loginInput, [ e.target.name ] : e.target.value })
+    }
+
+    const loginSubmit = (e) => {
+        e.preventDefault()
+
+        const data  = {
+            username: loginInput.username,
+            password: loginInput.password,
+        }
+
+        axios.get('/sanctum/csrf-cookie').then(response => {
+            axios.post('/api/login', data).then(res => {
+                
+                // console.log(res.data.meta);
+                if (res.data.meta.code === 200) {
+                    localStorage.setItem('token', res.data.data.access_token);
+                    localStorage.setItem('name', res.data.data.user.username);
+
+                    swal("Berhasil", "Selamat Datang Kembali", "success");
+                    history.push('/user/dashboard');
+                } else if (res.data.meta.code === 401) {
+                    swal("Peringatan", "Username / Kata Sandi salah", "warning");
+                } else {
+                    setLogin({ ...loginInput, error_list: res.data.data.validation_errors });
+                }
+            });
+        });
+    }
+
     return (
         <div>
             <Navbar />
             <StyledScreen>
                 <StyledContainer>
-                    <StyledForm>
+                    <StyledForm onSubmit={ loginSubmit }>
                         <StyledInput
+                            name="username"
+                            onChange={ handleInput }
+                            value={ loginInput.username }
                             placeholder="USERNAME"
                         />
+                        {
+                            loginInput.error_list.username ?
+                                <span className="invalid-feedback">{ loginInput.error_list.username }</span>
+                            :
+                                ''
+                        }
                         <StyledInput
+                            name="password"
+                            type="password"
+                            onChange={ handleInput }
+                            value={ loginInput.password }
                             placeholder="PASSWORD"
                         />
+                        {
+                            loginInput.error_list.password ?
+                                <span className="invalid-feedback">{ loginInput.error_list.password }</span>
+                            :
+                                ''
+                        }
                         <StyledParagraph>
                             Lupa Password
                         </StyledParagraph>
                         <StyledButton>
-                            <StyledLink to="/attendance">
+                            {/* <StyledLink> */}
                                 MASUK
-                            </StyledLink>
+                            {/* </StyledLink> */}
                         </StyledButton>
                     </StyledForm>
                 </StyledContainer>
